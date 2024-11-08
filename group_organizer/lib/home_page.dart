@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                     title: Text(groupData['name'] ?? 'Unnamed Group'), //display group name
                     subtitle: Text('Group ID: ${groups[index].id}'), // display group ID
                     onTap: () {
-                      // TODO: implement each group page when row is tapped
+                      context.push('/group/${groups[index].id}');
                     },
                   );
                 },
@@ -116,13 +116,6 @@ class _HomePageState extends State<HomePage> {
             },
           );
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.push('/create-group'); // Navigate to group creation page
-        },
-        tooltip: 'Create Group',
-        child: const Icon(Icons.add),
       ),
     );
   }
