@@ -117,12 +117,25 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.push('/create-group'); // Navigate to group creation page
-        },
-        tooltip: 'Create Group',
-        child: const Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              context.push('/create-group'); // Navigate to group creation page
+            },
+            tooltip: 'Create Group',
+            child: const Icon(Icons.add),
+          ),
+          const SizedBox(height: 16), // Spacing between buttons
+          FloatingActionButton(
+            onPressed: () {
+              context.push('/home-page/todo-list'); // Navigate to TodoListScreen
+            },
+            tooltip: 'Go to Todo List',
+            child: const Icon(Icons.checklist),
+          ),
+        ],
       ),
     );
   }

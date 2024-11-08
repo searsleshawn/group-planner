@@ -9,7 +9,8 @@ import 'package:provider/provider.dart';
 
 import 'welcome_page.dart';
 import 'home_page.dart';
-import 'app_state.dart';  
+import 'app_state.dart';
+import 'todo_list.dart';
 
 class AppRouter {
   final ApplicationState appState;
@@ -104,8 +105,12 @@ class AppRouter {
             path: "create-group",
             builder: (context, state) => const CreateGroupPage(),
           ),
+          GoRoute(
+            name: "todo-list",
+            path: "todo-list",  // This will be accessible as /home-page/todo-list
+            builder: (context, state) => TodoListScreen(),
+          ),
         ],
-
       ),
       GoRoute(
         //redirect: appState.loggedIn ? return context.namedLocation("/home-page") : return "/welcome-page",
@@ -136,5 +141,4 @@ class AppRouter {
       print('Error adding group: $e');
     }
   }
-
 }
